@@ -77,10 +77,10 @@ module.exports = {
 				case "volume" : {
 					const Volume = options.getNumber("percent");
 					if(Volume > 100 || Volume < 1 )
-					return interaction.reply({embeds: [new MessageEmbed().setColor('RED').setTitle('<a:catJAM:910933029072023552>  Music').setDescription('You have to specify number between 1 and 100')]}),
+					return interaction.reply({embeds: [new MessageEmbed().setColor('RED').setTitle('<a:catJAM:910933029072023552>  Music').setDescription('You have to specify number between 1 and 100')]});
 
 					interaction.client.distube.setVolume(VoiceChannel, Volume)
-					return interaction.reply({embeds: [new MessageEmbed().setColor('RED').setTitle('<a:catJAM:910933029072023552>  Music').setDescription(`Volume has been set to ${Volume}%`)]})
+					return interaction.reply({embeds: [new MessageEmbed().setColor('GREEN').setTitle('<a:catJAM:910933029072023552>  Music').setDescription(`Volume has been set to ${Volume}%`)]});
 				}
 				case "skip" : 
 					await queue.skip(VoiceChannel);
