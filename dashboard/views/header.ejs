@@ -1,0 +1,25 @@
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+<title><%= bot.user.username %></title>
+
+<nav>
+    <div class="navbar">
+        <div class="navbar-content">
+            <a class="discord" href="https://discord.gg/rFBtUyebXx" target="_blank"><span class="iconify" data-icon="bx:bxl-discord-alt" style="color: white;" data-width="40" data-height="40"></span></a>
+            
+            <a class="dashboard" href="/dashboard"><span class="iconify" data-icon="ci:dashboard-02" style="color: white;" data-width="40" data-height="40"></span></a>
+        </div>
+
+        <% if(user && user.id) { %>
+            <button class="log-button" style="top: -20px" onclick="location.href='/logout'" type="button"><img class="logout-img" src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" alt="LOGO"><span class="logout">LOGOUT</span></button>
+        <% }else { %>
+            <button class="log-button" onclick="location.href='/login'" type="button"><span class="login">LOGIN</span></button>
+        <% }%>
+
+    </div>
+
+    <a href="/">
+        <img class="logo" src="<%= bot.user.displayAvatarURL({size: 4096}) %>" alt="Logo">
+    </a> 
+</nav>

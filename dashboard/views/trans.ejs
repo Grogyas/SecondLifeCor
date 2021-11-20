@@ -1,0 +1,16 @@
+<div class="translation-category">
+    <div>
+        <h9>Translations</h9>
+        <p>Change any translation for guild <%= guild.name %></p>
+        <form method="POST">
+            <br><br>
+            <h5>Test Message:</h5>
+            <p>The Message to reply with</p>
+            <input type="text" name="hellomsg" value="<%= bot.settings.get(guild.id, 'hellomsg') %>" placeholder="hellomsg">
+            
+            <button type="submit">
+                <i data-icon="cil:save"></i> Save Settings
+            </button>
+        </form>
+    </div>
+</div>

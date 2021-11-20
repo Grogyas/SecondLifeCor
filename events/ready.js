@@ -8,8 +8,6 @@ require('dotenv').config();
 const cerror = chalk.bold.red;
 const cwarning = chalk.keyword('orange');
 const csuccess = chalk.bold.green;
-const command = require('../index.js')
-const mongoose = require('mongoose')
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -30,7 +28,6 @@ module.exports = {
 
 	    versioncheck()
         filescheck()
-		database()
 
 	    const CLIENT_ID = client.user.id;
 
@@ -79,15 +76,4 @@ function filescheck() {
         console.log(eventFiles)
         console.log(chalk.cyan("🔼 Files Registered 🔼"))
     }
-}
-
-function database() {
-	mongoose.connect(process.env.MONGODB, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	}).then(() => {
-		console.log(chalk.blue("Database: ") + chalk.green("Connected"))
-	}).catch((err) => {
-		console.log(chalk.red(err))
-	})
 }

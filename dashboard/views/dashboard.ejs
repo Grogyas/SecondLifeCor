@@ -1,0 +1,42 @@
+<%- include('header'); -%>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        <link rel="stylesheet" href="/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    <body>
+        <div>
+            <h1 class="center"><b>Dashboard</b></h1>
+            <p class="center">With the Dashboard you can manage the Settings of each single Guild individually!</p>
+        </div>
+
+        <% if(user && user.id){ %>
+            <div class="guild-container">
+                <% user.guilds.filter(guild=>{
+                    const permsOnGuild = new Permissions(guild.permissions_new);
+                    if(permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) return guild;
+                }).sort((a, b) => {
+                    return (bot.guilds.cache.get(a.id) == bot.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
+                }).forEach(guild => {
+                %>
+                    <div class="card">
+                        <%- guild.icon ? `<img class="server-logo" src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}">` : `<img class="server-logo" src="https://cdn.discordapp.com/attachments/765919453766352916/877787616974622770/wCfHtuoejLIbAAAAABJRU5ErkJggg.png">` %>
+                        <div>
+                            <h5 class="center"><%= guild.name %></h5>
+                            <% if(bot.guilds.cache.get(guild.id)){ %>
+                                <a class="dashboard-button" href=" <%- botconfig.domain %>/dashboard/<%- guild.id %>">MANAGE</a>
+                            <% }else {  %>
+                                <a class="dashboard-button" href="<%= `https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot%20applications.commands&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${callback}`)}`  %>">&nbsp;&nbsp;INVITE&nbsp;&nbsp;</a>
+                            <% } %>
+                        </div> 
+                    </div>
+                <% }) %>
+            </div>
+        <% }else {  %>
+                <p>Please login First!</p>
+        <%  } %>
+    </body>
+</html>

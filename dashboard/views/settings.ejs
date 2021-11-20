@@ -1,0 +1,82 @@
+<%- include('header'); -%>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-details">
+                <div class="logo_name"><%= guild.name %></div>
+                <i class='bx bx-menu' id="btn"></i>
+            </div>
+            <ul class="nav-list">
+                <li>
+                    <button type="button" class="buttonos general">
+                        <i class='bx bx-test-tube'></i>
+                        <span class="links_name">General (Testing)</span>
+                    </button>
+                    <span class="tooltip">General (Testing)</span>
+                </li>
+                <li>
+                    <button type="button" class="buttonos translation">
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Translations</span>
+                    </button>
+                    <span class="tooltip">Translations</span>
+                </li>
+                <li>
+                    <a href="https://discord.gg/rFBtUyebXx">
+                        <i class='bx bxl-discord'></i>
+                        <span class="links_name">Support</span>
+                    </a>
+                    <span class="tooltip">Support</span>
+                </li>
+            </ul>
+        </div>
+        <section class="home-section">
+            <div class="text">
+                <h9><b><%= guild.name %></b> | Dashboard</h9>
+                <p class="center">Start by selecting category in sidebar</p>
+            </div>
+            <%- include('gen'); -%>
+            <%- include('trans'); -%>
+        </section>
+        
+        <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange();
+        });
+
+        $("button.general").click(function() {
+            // $("div.general-category").toggle(250);
+            $("div.general-category").toggle(true)
+            $("div.translation-category").toggle(false)
+        });
+
+        $("button.translation").click(function() {
+            $("div.general-category").toggle(false)
+            $("div.translation-category").toggle(true)
+        });
+
+        function menuBtnChange() {
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            }
+        }
+        </script>
+    </body>
+</html>

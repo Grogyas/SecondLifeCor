@@ -1,0 +1,501 @@
+:root {
+    --main-bg-color: #131313;
+    --secondary-color: #191919;
+    --trim-color: #252525;
+    --primary-text: white;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text)
+}
+
+body {
+    background-color: var(--main-bg-color);
+    height: 100%;
+}
+
+/* ---------------------- */
+/*          Home          */
+/* ---------------------- */
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+.footer, .push {
+    height: 50px;
+}
+
+.center {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+    text-align: center;
+    text-decoration: none;
+    height: 80px;
+}
+
+.navbar-content {
+    top: 20px;
+    position: relative;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    top: -75px;
+    position: relative;
+    background-color: var(--secondary-color);
+    border-radius: 100px;
+    padding: 8px;
+}
+
+.log-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-align: right;
+    float: right;
+    right: 20px;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+}
+
+.login {
+    background-color: var(--trim-color);
+    position: relative;
+    padding: 8.5px;
+    border-radius: 20px;
+}
+
+.logout {
+    background-color: var(--trim-color);
+    position: relative;
+    padding: 8.5px 8.5px 8.5px 5px;
+    border-radius: 0px 20px 20px 0px;
+    top: 1px;
+}
+
+.logout-img {
+    width: 33px;
+    border-radius: 20px 0px 0px 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.discord {
+    position: relative;
+    right: 46px;
+    top: -20px;
+}
+
+.dashboard {
+    top: -20px;
+    left: 50px;
+    position: relative;
+}
+
+h9 {
+    text-align: center;
+    display: block;
+    padding-top: 5%;
+    font-size: 50px;
+}
+
+.beta {
+    font-size: 28px;
+    left: -5px;
+    position: relative;
+    color: #858585;
+}
+
+.invite {
+    text-decoration: none;
+    font-size: 68px;
+    top: -13px;
+    position: relative;
+}
+
+.invite-btn {
+    background-color: var(--secondary-color);
+    padding: 0px 23px;
+    border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---------------------- */
+/*       Dashboard        */
+/* ---------------------- */
+h1 {
+    font-size: 50px;
+}
+
+.server-logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 26px;
+    margin-left: 11.5px;
+    margin-top: 11.5px;
+}
+
+.card {
+    background-color: var(--secondary-color);
+    margin-top: 10px;
+    width: 175px;
+    height: 250px;
+    border-radius: 15px;
+    margin: 3px;
+}
+
+h5 {
+    font-size: 15px;
+    background-color: var(--main-bg-color);
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 12.5px;
+    max-height: 50px;
+    border-radius: 12px;
+    padding: 9px;
+}
+
+.dashboard-button {
+    background-color: var(--trim-color);
+    font-size: 15px;
+    width: 80px;
+    position: relative;
+    top: 7px;
+    margin-left: 47.5px;
+    padding: 3px 5px;
+    border-radius: 8px;
+}
+
+.guild-container {
+    width: 80%;
+    left: 10%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* ---------------------- */
+/*       Settings         */
+/* ---------------------- */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 78px;
+    background: #191919;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .logo-details .icon {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: right;
+}
+
+.sidebar i {
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+    height: 50px;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+    color: black;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.sidebar input {
+    font-size: 15px;
+    color: #FFF;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    width: 50px;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    background: #1d1b31;
+}
+
+.sidebar.open input {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+
+.sidebar .bx-search {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    background: #1d1b31;
+    color: #FFF;
+}
+
+.sidebar.open .bx-search:hover {
+    background: #1d1b31;
+    color: #FFF;
+}
+
+.sidebar .bx-search:hover {
+    background: #FFF;
+    color: #191919;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #191919;
+}
+
+.sidebar li a:hover {
+    background: #FFF;
+}
+
+.sidebar li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #191919;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+
+.buttonos {
+    background-color: transparent;
+    border: none;
+}
+
+
+.sidebar li button {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #191919;
+}
+
+.sidebar li button:hover {
+    background: #FFF;
+}
+
+.sidebar li button .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li button .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li button:hover .links_name,
+.sidebar li button:hover i {
+    transition: all 0.5s ease;
+    color: #191919;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.home-section {
+    position: relative;
+    background: #131313;
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.sidebar.open~.home-section {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.home-section .text {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 420px) {
+    .sidebar li .tooltip {
+        display: none;
+    }
+}
+
+/* ---------------------- */
+/*        General         */
+/* ---------------------- */
+.general-category {
+    background-color: var(--main-bg-color);
+    height: 100%;
+    top: -250px;
+    position: relative;
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+.translation-category {
+    /* background-color: var(--main-bg-color); */
+    background-color: var(--main-bg-color);
+    height: 100%;
+    top: -250px;
+    position: relative;
+    display: none;
+}

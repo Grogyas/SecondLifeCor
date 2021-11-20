@@ -1,0 +1,40 @@
+<div class="general-category">
+    <div>
+        <div>
+            <div>
+                <div>
+                    <h3> Server Settings Cock</h3>
+                    <p>Change the Server Settings of <%= bot.user.username %> in <%= guild.name %></p>
+                    <form method="POST">
+                        <h5>Prefix:</h5>
+                        <p>The prefix that is added to discord messages in order to invoke commands.</p>
+                        <input type="text" name="prefix" value="<%= bot.settings.get(guild.id, 'prefix') %>" placeholder="Your Prefix">
+                        
+                        
+                        <br><br>
+                        <h5>Hello Message:</h5>
+                        <p>The Message to reply with</p>
+                        <input type="text" name="hellomsg" value="<%= bot.settings.get(guild.id, 'hellomsg') %>" placeholder="hellomsg">
+                        
+    
+    
+                        <br><br>
+                        <h5>Roles:</h5>
+                        <p>Sample Roles Selector!</p>
+                        <select multiple data-width="100%" data-live-search="true" aria-label="Roles" name="roles">
+                            <% guild.roles.cache.filter(role=>!role.managed).sort((a, b) => b.rawPosition - a.rawPosition).forEach((role, i) => { %>
+                                <option value="<%= role.id%>" 
+                                    <%= bot.settings.get(guild.id, "roles").includes(role.id) ? "selected" : "" %>> @<%= role.name%>
+                                </option>
+                            <% }) %>
+                        </select>
+    
+                        <button type="submit">
+                            <i data-icon="cil:save"></i> Save Settings
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

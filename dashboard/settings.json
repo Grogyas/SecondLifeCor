@@ -1,0 +1,11 @@
+{
+    "website": {
+        "support": "https://slportal.eu",
+        "domain": "https://cord.slportal.eu"
+    },
+    "config": {
+        "port": 5000,
+        "callback": "https://cord.slportal.eu/callback",
+        "clientID": "685880839766409231"
+    }
+}
